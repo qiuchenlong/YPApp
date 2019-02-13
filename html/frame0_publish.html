@@ -463,7 +463,8 @@
         };
         //轮播
         function getLunBo() {
-            $api.post(phpurl + 'Home/Book/pad?pindao=3', {}, function(ret) {
+          //Home/Book/pad?pindao=3
+            $api.post(phpurl + 'Home/Book/pad?pindao=1', {}, function(ret) {
                 var result = ret.result;
                 if (ret.code == 200) {
                     if (ret.result.length > 0) {
@@ -635,8 +636,9 @@
                     //     'headerH': h
                     // }
                 });
-            }
-            ;
+            };
+
+            var footerPos = {}
             api.openFrameGroup({
                 name          : 'frame0_Group',
                 scrollEnabled : false,
@@ -645,7 +647,8 @@
                     x : 0,
                     y : 0,
                     w : api.winWidth,
-                    h : api.winHeight - footerPos.h - 0,
+                    // h : api.winHeight - footerPos.h - 0,
+                    h : footerPos ? api.winHeight - footerPos.h - 0 : api.winHeight - 50,
                     // marginBottom: 60
                 },
                 index         : 0,

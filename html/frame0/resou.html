@@ -301,9 +301,11 @@
 			$api.post(phpurl + "Home/Book/pindaolst?", {
 				values: {
 					page: page,
-					id: xiaoshouId
+					pindao: xiaoshouId
 				}
 			}, function (ret) {
+
+				// alert(phpurl + "Home/Book/pindaolst?page=" + page + "&id=" + xiaoshouId)
 
 				if (ret.code == 200) {
 					var result = ret.result;

@@ -318,8 +318,12 @@
         $api.post(phpurl + 'Home/ad/shang', { //上线状态屏蔽
         }, function(ret) {
             if (ret.result[0].shang == 0) {
-                document.getElementById('qian_dao').style.display = 'block';
-                document.getElementById('jin_e').style.display = 'block';
+                if (document.getElementById('qian_dao') != undefined) {
+                    document.getElementById('qian_dao').style.display = 'block';
+                }
+                if (document.getElementById('jin_e') != undefined) {
+                    document.getElementById('jin_e').style.display = 'block';
+                }
             }
         });
         userid = $api.getStorage('user_id');

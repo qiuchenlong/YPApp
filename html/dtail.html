@@ -23,8 +23,8 @@
     <i class="iconfont iconfont icon-xiangshangbiaoshi-copy" style="font-size: 0.32rem;width: 1.32rem;" onclick="fanhui()"></i>
     <h1 class="h1" style="    display: none;">书籍详情</h1>
     <div class="right" style="    display: flex;align-items: center;">
-        <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;"></i>
-        <i class="iconfont icon-more-copy" style="font-size: 0.5rem;margin-left: 1em;"></i>
+        <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;margin-left: 1em;"></i>
+        <!-- <i class="iconfont icon-more-copy" style="font-size: 0.5rem;margin-left: 1em;" onclick="alert('敬请期待')"></i> -->
     </div>
 </header>
 <div class="content">
@@ -793,7 +793,7 @@
     });
  function fenxiang(m)
           {
-          
+
         if (m == 1) {
             var path = 'session';
         }
@@ -815,8 +815,8 @@
                 alert(err.code);
             }
         });
-          
-          } 
+
+          }
     function jubao() {
         api.openWin({
             name : 'win_jubao',
