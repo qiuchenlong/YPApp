@@ -162,6 +162,7 @@ img{ vertical-align: middle; }
 .u-hd_f .h1{ flex: 1; text-align: center; padding-right: 0.28rem; }
 .u-line2{ width: 100%; -webkit-line-clamp: 1; line-height: 1.5; }
 .u-ul_flex{ flex-wrap: wrap; }
+/*style="justify-content: flex-start;"*/
 .u-ul_flex .li{  margin: 0.1rem; }
 .u-ul_flex .top img{ height: 1.7rem;width: 1.4rem;}
 .u-ul_flex .button{ padding-top: 0.14rem; text-align: center; height: 1.1rem; }

@@ -7,10 +7,16 @@
 //var uimgUrl = "http://www.youdingb.com/xiangmu/book/";
 //var phpurl = "http://www.youdingb.com/xiangmu/book/index.php/";
 
-var imageUrl = "http://129.204.67.131/Public/";
-var uimgUrl = "http://129.204.67.131/book/books/Public/";
-var phpurl = "http://129.204.67.131/book/index.php/";
-var userimg = "http://129.204.67.131/Public/";
+// var imageUrl = "http://129.204.67.131/Public/";
+// var uimgUrl = "http://129.204.67.131/book/books/Public/";
+// var phpurl = "http://129.204.67.131/book/index.php/";
+// var userimg = "http://129.204.67.131/Public/";
+
+var imageUrl = "http://47.52.167.141/Public/";
+var uimgUrl = "http://47.52.167.141/book/books/Public/";
+var phpurl = "http://47.52.167.141/book/index.php/";
+var userimg = "http://47.52.167.141/Public/";
+
 
 (function (window) {
     var u = {};

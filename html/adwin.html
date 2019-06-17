@@ -22,30 +22,30 @@
    		#main{ height:100%;}
    		#main img{ width: 100%;height: auto;}
    		#yuantu{ opacity: 0.5; position: fixed; top: 0px; right: 0px;
-        height: 50px; line-height: 50px; width: 50px; background: #000000; 
+        height: 50px; line-height: 50px; width: 50px; background: #000000;
         border-radius: 50%; color: #ffffff; font-size: 14px; z-index: 1000;
         text-align: center;}
     </style>
-    
+
 </head>
 <body>
-   
-       
-   
+
+
+
         <!--main-->
         <div id="main" class="flex-con">
         <div id="yuantu">
                   3秒
            </div>
         <img src="" id="ad" onclick="gotos()"></div>
-       
-                
+
+
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/jquery.js"></script>
 <script type="text/javascript">
  var bookid,weburl,path,xiangqing;
- 
+
  	$('#yuantu').click(function()
 	{
 	    api.closeFrame({
@@ -55,15 +55,15 @@
         api.toast({
 	        msg:'左滑关闭'
         });
-        
+
 		 api.addEventListener({
 		    name:'swipeleft'
-		}, function(ret, err){        
+		}, function(ret, err){
 		   api.closeFrame({
            });
 		});
-		
-		
+
+
 		var i=4;
 		setInterval(function(){//3秒广告
 		document.getElementById('yuantu').innerHTML=i+'秒';
@@ -74,22 +74,27 @@
 		}
 		i--;
 		},1000)
-		
+
 
     bookid=api.pageParam.bookid;
-    
+
     $api.post(phpurl+'Home/Ad/bookad?bookid='+bookid,function(ret){
-//     alert($api.jsonToStr(ret));
+    // alert($api.jsonToStr(ret));
+    if (ret.result.images == undefined) {
+        api.closeFrame({
+           });
+        return;
+    }
 		document.getElementById('ad').src=imageUrl+ret.result.images;
 		weburl=ret.result.weburl;
 		path=ret.result.gotos;
 		xiangqing=ret.result.content;
-		
+
 	});
-	
+
      }
-          
-          
+
+
           function gotos()
           {
 //        alert(path);alert(xiangqing);alert(weburl);
@@ -114,26 +119,9 @@
 					url : weburl,
 				});
 			}
-              
-              
-          
+
+
+
           }
 </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

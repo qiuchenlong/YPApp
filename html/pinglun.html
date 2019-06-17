@@ -17,9 +17,10 @@
 <header class="detail_header js-nav_bg">
     <i class="iconfont iconfont icon-xiangshangbiaoshi-copy" style="font-size: 0.32rem;width: 1.32rem;" onclick="fanhui()"></i>
     <h1 class="h1">书评详情</h1>
-    <div class="right" style="    display: flex;align-items: center;">
-        <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;"></i>
-        <i class="iconfont icon-more-copy" style="font-size: 0.5rem;margin-left: 1em;"></i>
+    <div class="right" style="    display: flex;align-items: center; width: 1.32rem;">
+        <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;margin-left: 2em;"></i>
+        <!-- <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;"></i>
+        <i class="iconfont icon-more-copy" style="font-size: 0.5rem;margin-left: 1em;"></i> -->
     </div>
 </header>
 <div class="content">
@@ -151,7 +152,7 @@
             </div>
         </div>
         <div class="bd">
-            <div class="u-comment" ng-repeat="pl in plList">
+            <div class="u-comment" ng-repeat="pl in plList" id="uid">
                 <p class="comment_user">
                         <span class="iconfont">
                             <img ng-src="{{ pl.uimg }}" alt="" src="" onerror="this.src='../image/my.png';this.onerror=null" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
@@ -173,6 +174,33 @@
                             <span>举报</span>
                             <span class="nmb">0</span>
                         </i>
+
+<!-- {{ pl.user_id }}, {{uid}} -->
+                        <!-- 如果是自己的评论，显示删除按钮 -->
+                        <!-- <script>
+                        <if condition="{{ pl.user_id }} eq {{uid}} ">
+                            <i class="" onclick="alert('1')">
+                                <span>删除</span>
+                            </i>
+                        <else />
+                            <span>111111</span>
+                        </if>
+                        </script> -->
+
+
+                            <i ng-if="pl.user_id==uid" class="" ng-click="delete($index, pl.id)">
+                                <span>删除</span>
+                            </i>
+
+
+                        <!-- {% if {{ pl.user_id }} == {{uid}} %}
+                            <i class="" onclick="alert('1')">
+                                <span>删除</span>
+                            </i>
+                        {% else %}
+                            <span>111111</span>
+                        {% endif %} -->
+
                     </p>
                 </div>
                 <!--<div class="u-reply reply_on">
@@ -348,6 +376,7 @@
                     }
                     $scope.dlist = result.book_bookreply_list1[0];
                     $scope.plList = $scope.plList.concat(result.book_bookreply_list2);
+                    $scope.uid = userid;
                     $scope.$apply();
                     // $api.closeloadding(); //关闭加载
                 } else {
@@ -372,6 +401,24 @@
                 }
             });
         };
+
+        //删除评论
+        $scope.delete = function(index, id) {
+            $api.post(phpurl + 'Home/Book/deletereply', {
+                values : {
+                    rid : id,
+                },
+            }, function(ret) {
+                if (ret.code == 200) {
+                    $scope.plList.splice(index,1)
+                    api.toast({
+                        msg : '删除成功',
+                    });
+                    getData(0);
+                }
+            });
+        };
+
         //添加评论
         $scope.shuping = function(data) {
             $api.post(phpurl + 'Home/Book/addreply?', {
