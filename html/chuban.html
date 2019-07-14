@@ -80,6 +80,13 @@
                     <h2>{{ d.shortname }}</h2>
                 </div>
             </li>
+
+
+            <!-- 占位符，补齐列表 -->
+            <li class="li" ng-if="dataList.length%2 != 0" style="float:left; width:45%">
+            </li>
+
+
             <!-- <li class="li">
                 <div class="left">
                     <img class="img_pst" src="../src/images/i-01.png" alt="">
@@ -216,6 +223,7 @@
                     title    : '分类',
                     data     : {
                         sortid : datas,
+                        types  : 3,
                     },
                 },
             });

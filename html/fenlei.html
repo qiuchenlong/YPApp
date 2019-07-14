@@ -496,6 +496,7 @@
 <script src="../script/ev.js"></script>
 <script type="text/javascript">
     var sortid,
+        typeid,
         zongshu = 0,
         articletype,
         zishu,
@@ -503,6 +504,9 @@
         ceshi;
     apiready = function() {
         sortid = api.pageParam.data.sortid;
+        typeid = api.pageParam.data.types;
+
+
         EventT.emit('apiready');
         //getData(0);
     };
@@ -537,12 +541,14 @@
             // console.log(articletype);
             // console.log(zifenid);
             // console.log(zishu);
+            console.log(typeid);
             $api.post(phpurl + 'Home/Book/sortdetail', {
                 values : {
                     page        : page,
                     articletype : articletype,
                     sortid      : zifenid,
                     zishu       : zishu,
+                    typeid      : typeid,
                 },
             }, function(ret) {
                 // console.log(JSON.stringify(ret))

@@ -71,6 +71,11 @@
                     <h2>{{ d.shortname }}</h2>
                 </div>
             </li>
+
+            <!-- 占位符，补齐列表 -->
+            <li class="li" ng-if="dataList.length%2 != 0" style="float:left; width:45%">
+            </li>
+
             <!-- <li class="li" ng-repeat="d in lastList" ng-cloak ng-click="openws(d.sortid)">
                 <div class="left">
                     <img class="img_pst" src="{{ imageUrl + d.imgurl }}" alt="">
@@ -216,6 +221,7 @@
                     title    : '分类',
                     data     : {
                         sortid : datas,
+                        types  : 2,
                     },
                 },
             });

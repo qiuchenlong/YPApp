@@ -216,7 +216,7 @@
         登录
     </button>
 </div>
-<div class="footer">
+<div class="footer" style="display:none;">
     <p><span class="line1" style=""></span><span style="width:40%;">或使用第三方账号登录</span><span class="line2" style=""></span></p>
     <div class="login_way clearfix">
  <!--       <div class="qq">
@@ -383,8 +383,8 @@
             url  : 'reset_win.html',
         });
     }
-    
-    
+
+
     $api.byId('wx').onclick=function(){
 	var wx = api.require('wx');
 		wx.auth({
@@ -421,10 +421,10 @@
 		               name:nm,
 		               images:images
 		            }
-		            
+
 		        },function(ret,err){
 //		        alert($api.jsonToStr(ret));
-		        
+
 		                          if(ret.code==200)
                           {
                           api.toast({
@@ -435,8 +435,8 @@
                          $api.send("usershua",{cid:1});
                             $api.send("usershuas",{cid:1});
                         setTimeout(function(){
-                        	
-                        	
+
+
                         	api.openSlidLayout({
             type: 'left',
             fixedPane: {
@@ -455,15 +455,15 @@
         });
 
                         },800)
-                        
+
                         }
-                        
-		        
-		        
+
+
+
 		        })
-								            
-								            
-								            
+
+
+
 							} else {
 
 							}
@@ -478,9 +478,9 @@
 				}
 			}
 		})
-		
+
     };
-    
+
     function weiXinLogin() {
         //		var loginWay = new otherLogin();
         //		loginWay.wx_register();

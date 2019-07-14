@@ -53,6 +53,7 @@
             <!--<a class="iconfont icon-xiangshangbiaoshi-copy" style="margin-top: 15px;" href="javascript:;" onclick="fanhui();"></a>-->
         </div>
         <div class="m-dtail_hd-bg">
+          {{imgurl}}
             <img src="{{imgurl + dlist.images}}" alt="">
         </div>
         <ul class="btnList">
@@ -155,7 +156,7 @@
             <div class="u-comment" ng-repeat="pl in plList" id="uid">
                 <p class="comment_user">
                         <span class="iconfont">
-                            <img ng-src="{{ pl.uimg }}" alt="" src="" onerror="this.src='../image/my.png';this.onerror=null" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
+                            <img ng-src="{{ imgurl + pl.uimg }}" alt="" src="" onerror="this.src='../image/my.png';this.onerror=null" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
                         </span>
                     <span class="user_name">{{ pl.username }}</span>
                     <span class="u-score">

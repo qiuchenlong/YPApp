@@ -213,7 +213,7 @@
             <div class="u-comment" ng-repeat="d in allreplyList" ng-cloak>
                 <p class="comment_user">
                         <span class="iconfont">
-                            <img src="{{ d.uimg || '../image/my.png' }}" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
+                            <img src="{{ imgurl + d.uimg || '../image/my.png' }}" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
                         </span>
                     <span class="user_name">{{ d.username }}</span>
                     <span class="u-score">
@@ -477,7 +477,7 @@
                     $scope.$apply();
                     var user_head = $api.getStorage('user_head');
                     if (user_head != '' && user_head != 'touxiang.png' && user_head) {
-                        $('.frame3_my').attr('src', user_head);
+                        $('.frame3_my').attr('src', imageUrl + user_head);
                     }
                 }
                 // $api.closeloadding(); //关闭加载
@@ -554,7 +554,7 @@
                 // getData(0);
                 var user_head = $api.getStorage('user_head');
                 if (user_head != '' || user_head == 'touxiang.png') {
-                    $('.frame3_my').attr('src', user_head);
+                    $('.frame3_my').attr('src', imageUrl + user_head);
                 }
                 else {
                     $('.frame3_my').attr('src', '../image/my_fff.png');

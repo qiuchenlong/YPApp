@@ -25,6 +25,7 @@
         }
     </style>
 </head>
+<!-- 精选 男频 -->
 <body ng-controller="DataController">
 <header class="header">
     <div class="breadcrumbs">
@@ -298,15 +299,15 @@
             </ul>
         </div>
     </div>
-    <div class="m-time-travel" ng-repeat="chuanyue in bookList" ng-cloak>
-        <div class="u-hd" ng-click="openWs(chuanyue.id)">
+    <div class="m-time-travel" ng-if="chuanyue.xiaoshuo.length > 0" ng-repeat="chuanyue in bookList" ng-cloak>
+        <div class="u-hd"  ng-click="openWs(chuanyue.id)">
             <h2 class="h2">{{ chuanyue.title }}</h2>
             <div class="right">
                 <a href="javascript:;">更多</a>
             </div>
         </div>
         <div class="bd">
-            <ul class="u-ul_lr">
+            <ul class="u-ul_lr" ng-if="chuanyue.xiaoshuo.length > 0">
                 <li class="li" ng-repeat="cy in chuanyue.xiaoshuo | limitTo:4" ng-click="shuji(cy.articleid)" ng-cloak>
                     <div class="left">
                         <img src="{{ imgurl + cy.images }}" alt="">
@@ -366,7 +367,7 @@
                     </div>
                 </li> -->
             </ul>
-            <ul class="u-ul_flex">
+            <ul class="u-ul_flex" ng-if="chuanyue.xiaoshuo1.length > 0">
                 <li class="li" onClick="location.href='javascript:;'" ng-repeat="cy in chuanyue.xiaoshuo1 | limitTo:3" ng-cloak ng-click="shuji(cy.articleid)">
                     <div class="top">
                         <a href="javascript:;">
@@ -464,7 +465,8 @@
         //轮播
         function getLunBo() {
           //Home/Book/pad?pindao=2
-            $api.post(phpurl + 'Home/Book/pad?pindao=1', {}, function(ret) {
+
+            $api.post(phpurl + 'Home/Book/pad?pindao=2', {}, function(ret) {
                 var result = ret.result;
                 if (ret.code == 200) {
                     if (ret.result.length > 0) {

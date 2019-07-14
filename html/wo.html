@@ -233,7 +233,7 @@
                 // console.log(JSON.stringify(ret))
                 $api.setStorage('user', ret.result);
                 $api.setStorage('user_head', ret.result.images);
-                user_head = $api.getStorage('user_head');
+                user_head = "http://106.52.204.57/Public/"+$api.getStorage('user_head');
                 var users = ret.result;
                 // console.log(JSON.stringify(users))
                 jinbi = users.egold;
@@ -363,7 +363,7 @@
                     $api.setStorage('user', ret.result);
                     $api.setStorage('user_head', ret.result.images);
                     console.log(ret.result.images);
-                    user_head = $api.getStorage('user_head');
+                    user_head = "http://106.52.204.57/Public/"+$api.getStorage('user_head');
                     var users = ret.result;
                     // console.log(JSON.stringify(users))
                     jinbi = users.egold;

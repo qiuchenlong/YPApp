@@ -72,6 +72,7 @@
 			}
 		</style>
 	</head>
+	<!-- 精选 女频 -->
 	<body ng-controller="DataController">
 		<header class="header">
 			<div class="breadcrumbs">
@@ -79,29 +80,8 @@
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" ng-repeat="x in bannerList" ng-click="addetail(x)">
-								<a href="javascript:;"> <img src="{{lunboimg + x.images}}" alt="{{lunboimg + x.images}}"> </a>
+								<a href="javascript:;"> <img src="{{lunboimg + x.images}}" alt=""> </a>
 							</div>
-
-							<!--<div class="swiper-slide">
-							<a href="javascript:;">
-							<img src="../src/images/ind-02.png" alt="">
-							</a>
-							</div>
-							<div class="swiper-slide">
-							<a href="javascript:;">
-							<img src="../src/images/ind-03.png" alt="">
-							</a>
-							</div>
-							<div class="swiper-slide">
-							<a href="javascript:;">
-							<img src="../src/images/ind-04.png" alt="">
-							</a>
-							</div>
-							<div class="swiper-slide">
-							<a href="javascript:;">
-							<img src="../src/images/ind-05.png" alt="">
-							</a>
-							</div>-->
 						</div>
 						<!-- Add Pagination -->
 						<div class="swiper-pagination"></div>
@@ -156,87 +136,9 @@
 			</div>
 		</header>
 		<div class="content">
-			<!--   <div class="m-choice">
-			<h3 class="h3">女频：精选</h3>
-			<a class="u-text_line" href="javascript:;">推荐已生效，点开即领！</a>
-			</div>-->
-			<!--<div class="m-promotion">
-			<div class="u-hd">
-			<h2 class="h2">今日必读</h2>
-			</div>
-			<div class="bd">
-			<ul class="u-ul_lr">
-			<li class="li" onClick="location.href='javascript:;'">
-			<div class="left">
-			<img src="../src/images/i-01.png" alt="">
-			&lt;!&ndash;<span>完本</span>&ndash;&gt;
-			</div>
-			<div class="right">
-			<h3 class="h3 u-text_line">邪王轻点爱：枭宠医妃</h3>
-			<p class="u-line2">特种女兵军医穿越：战神王爷轻点可以吗？</p>
-			<p class="text">
-			<span class="author">拈花惹笑</span>
-			<em>
-			<span class="u-title1">王爷</span>
-			<span class="u-title2">女尊天下</span>
-			</em>
-			</p>
-			</div>
-			</li>
-			</ul>
-			<ul class="more_book">
-			<li class="more_book_li">
-			<div class="hd">无敌天下</div>
-			<div class="bd">
-			<div class="left">
-			<p class="info">天下容下我，我便灭了这天，这其中的尘缘......</p>
-			<p>作者名</p>
-			</div>
-			<div class="right">
-			<img src="../src/images/i-01.png" alt="">
-			</div>
-			</div>
-			</li>
-			<li class="more_book_li">
-			<div class="hd">无敌天下</div>
-			<div class="bd">
-			<div class="left">
-			<p class="info">天下容下我，我便灭了这天，这其中的尘缘......</p>
-			<p>作者名</p>
-			</div>
-			<div class="right">
-			<img src="../src/images/i-01.png" alt="">
-			</div>
-			</div>
-			</li>
-			<li class="more_book_li">
-			<div class="hd">无敌天下</div>
-			<div class="bd">
-			<div class="left">
-			<p class="info">天下容下我，我便灭了这天，这其中的尘缘......</p>
-			<p>作者名</p>
-			</div>
-			<div class="right">
-			<img src="../src/images/i-01.png" alt="">
-			</div>
-			</div>
-			</li>
-			<li class="more_book_li">
-			<div class="hd">无敌天下</div>
-			<div class="bd">
-			<div class="left">
-			<p class="info">天下容下我，我便灭了这天，这其中的尘缘......</p>
-			<p>作者名</p>
-			</div>
-			<div class="right">
-			<img src="../src/images/i-01.png" alt="">
-			</div>
-			</div>
-			</li>
-			</ul>
-			</div>
-			<div class="ft">查看更多</div>
-			</div>-->
+
+
+			<!-- 重磅推荐 -->
 			<div class="m-recom">
 				<div class="u-hd" ng-click="openWs(zhuda.id)">
 
@@ -255,40 +157,13 @@
 								<a class="u-line2" href="javascript:;" style="width: 5em;">{{ zd.articlename }}</a>
 							</div>
 						</li>
-						<!-- <li class="li">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png"/>
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li> -->
+
 					</ul>
 				</div>
 			</div>
 			<!--强力推荐-->
+
+			<!-- 现言畅销 -->
 			<div class="m-recom">
 				<div class="u-hd" ng-click="openWs(tuijian.id)">
 					<h2 class="h2" ng-cloak>{{ tuijian.title }}</h2>
@@ -306,68 +181,20 @@
 								<a class="u-line2" href="javascript:;" style="width: 5em;">{{ tj.articlename }}</a>
 							</div>
 						</li>
-						<!--<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>-->
+
 					</ul>
 				</div>
 			</div>
-			<div class="m-time-travel" ng-repeat="chuanyue in bookList">
-				<div class="u-hd" ng-click="openWs(chuanyue.id)">
+			<!-- 好书 -->
+			<div class="m-time-travel" ng-if="chuanyue.xiaoshuo.length > 0" ng-repeat="chuanyue in bookList">
+				<div class="u-hd"  ng-click="openWs(chuanyue.id)">
 					<h2 class="h2" ng-cloak>{{ chuanyue.title }}</h2>
 					<div class="right">
 						<a href="javascript:;">更多</a>
 					</div>
 				</div>
 				<div class="bd">
-					<ul class="u-ul_lr">
+					<ul class="u-ul_lr" ng-if="chuanyue.xiaoshuo.length > 0">
 						<li class="li" ng-repeat="cy in chuanyue.xiaoshuo" ng-click="shuji(cy.articleid)" ng-cloak>
 							<div class="left">
 								<img src="{{ imgurl + cy.images }}" alt="">
@@ -383,50 +210,9 @@
 								</p>
 							</div>
 						</li>
-						<!-- <li class="li" onClick="location.href='javascript:;'">
-						<div class="left">
-						<img src="../src/images/i-01.png" alt="">
-						</div>
-						<div class="right">
-						<h3 class="h3 u-text_line">邪王轻点爱：枭宠医妃</h3>
-						<p class="text">
-						<span class="author">拈花惹笑</span>
-						<span class="u-title1">王爷</span>
-						<span class="u-title2">女尊天下</span>
-						</p>
-						<p class="u-line2">特种女兵军医穿越：战神王爷轻点可以吗？</p>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="left">
-						<img src="../src/images/i-01.png" alt="">
-						</div>
-						<div class="right">
-						<h3 class="h3 u-text_line">邪王轻点爱：枭宠医妃</h3>
-						<p class="text">
-						<span class="author">拈花惹笑</span>
-						<span class="u-title1">王爷</span>
-						<span class="u-title2">女尊天下</span>
-						</p>
-						<p class="u-line2">特种女兵军医穿越：战神王爷轻点可以吗？</p>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="left">
-						<img src="../src/images/i-01.png" alt="">
-						</div>
-						<div class="right">
-						<h3 class="h3 u-text_line">邪王轻点爱：枭宠医妃</h3>
-						<p class="text">
-						<span class="author">拈花惹笑</span>
-						<span class="u-title1">王爷</span>
-						<span class="u-title2">女尊天下</span>
-						</p>
-						<p class="u-line2">特种女兵军医穿越：战神王爷轻点可以吗？</p>
-						</div>
-						</li> -->
+
 					</ul>
-					<ul class="u-ul_flex">
+					<ul class="u-ul_flex" ng-if="chuanyue.xiaoshuo1.length > 0">
 						<li class="li" onClick="location.href='javascript:;'" ng-repeat="cy in chuanyue.xiaoshuo1" ng-click="shuji(cy.articleid)">
 							<div class="top">
 								<a href="javascript:;"> <img src="{{ imgurl + cy.images }}" /> </a>
@@ -435,40 +221,13 @@
 								<a class="u-line2" href="javascript:;" style="width: 5em;">{{ cy.articlename }}</a>
 							</div>
 						</li>
-						<!-- <li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>
-						<li class="li" onClick="location.href='javascript:;'">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png" />
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li> -->
-						<!--<li class="li">
-						<div class="top">
-						<a href="javascript:;">
-						<img src="../src/images/i-01.png"/>
-						</a>
-						</div>
-						<div class="button">
-						<a class="u-line2" href="javascript:;">医妃读心术</a>
-						</div>
-						</li>-->
+
 					</ul>
 				</div>
 			</div>
 		</div>
+
+		<!-- 更多 -->
 		<div class="bottom_loadmore"></div>
 	</body>
 </html>
@@ -481,9 +240,9 @@
 		api.addEventListener({
 			name : 'usershuas',
 		}, function(ret, err) {
-			console.log(2222)
+			// console.log(2222)
 			var user_head = $api.getStorage('user').images;
-			console.log(user_head)
+			// console.log(user_head)
 			if (user_head == '' || user_head == 'touxiang.png') {
 				$('.frame0_my').attr('src', '../image/my.png');
 			} else {
@@ -505,7 +264,7 @@
 
 		var user_head = $api.getStorage('user_head');
 		if (user_head != '' && user_head != 'touxiang.png' && user_head) {
-			$('.frame0_my').attr('src',  user_head);
+			$('.frame0_my').attr('src', imageUrl + user_head);
 		}
 		//打开更多
 		$scope.openWs = function(data) {

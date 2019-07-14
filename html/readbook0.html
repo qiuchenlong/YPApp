@@ -918,37 +918,16 @@
 			background-size: 30px 100%;
 			opacity: 0.6;
 		}
-
-
-
-
 	</style>
 
 </head>
 
 <body>
 	<div id="zhang">第一章：天外飞仙</div>
-
-	<!-- 章节内容 -->
-	<div class="chaptercontent" style="padding: 30px 15px 65px" onclick="showfooter()">
-
-	</div>
-
-	<div id="footer" style="background:#CFCFCF; height:75px">
+	<div id="footer">
 		<p style=" text-align: left; margin-left:10px;" onclick="gotos()" id="adtitle">
 			adfa
 		</p>
-
-
-		<!-- 翻页控件 -->
-		<div style="margin: 0px 15px 25px;">
-			<!-- width:50%; height:35px; background:#ADD8E6 -->
-			<div style="float:left; font-size:15px; width:10%; margin:10px 0" onclick="list()">目录</div>
-			<div class="btn_front" style="float:left; font-size:15px; width:40%; margin:10px 0" onclick="frontChapter()">上一页</div>
-			<!-- width:50%; height:35px; background:#FF4500 -->
-			<div class="btn_next" style="float:left; font-size:15px; width:40%; margin:10px 0" onclick="nextChapter()">下一页</div>
-			<div style="float:right; font-size:15px; width:10%; margin:10px 0" onclick="exit()">退出</div>
-		</div>
 
 
 		<!-- 电池 -->
@@ -1022,12 +1001,7 @@
 			FontSize = 14;
 		}
 
-
-		$(".chaptercontent")[0].style.fontSize = FontSize + "px";
-
-
 		document.getElementById("beijing").style.background = img; //页面背景
-		$(".chaptercontent")[0].style.background = img; //页面背景
 
 		api.setWinAttr({ //禁止左滑
 			slidBackEnabled: false
@@ -1088,14 +1062,13 @@
 
 		//文章服务器目录
 		roots = parseInt(bookid / 1000);
-		// bookReader = api.require('bookReader');
+		bookReader = api.require('bookReader');
 
 		// alert(phpurl + "," + bookid + "," + userid)
-		console.log("bookid=" + bookid);
 		//文章章节
 		$api.post(phpurl + 'Home/book/chapterread?id=' + bookid + '&userid=' + userid, function(ret) {
 
-			// console.log(JSON.stringify(ret));
+			console.log(JSON.stringify(ret));
 
 			document.getElementById('adtitle').innerHTML = ret.result.title;
 			weburl = ret.result.weburl;
@@ -1340,42 +1313,21 @@
 	//加载章节  d：加载进度
 	function xiayizhang(wenzhang, d) {
 
-		// console.log("d======" + wenzhang + ",,," + d);
-
-
-		api.readFile({
-				path: wenzhang
-		}, function(ret, err){
-				if( ret ){
-					var ct = ret.data;
-
-					// content = content.replace("\r\n", "\r\n\r\n");
-					var content = ct.replace(/\r\n/g,"<br>");
-
-					$(".chaptercontent").html(content);
-
-						document.documentElement.scrollTop = document.body.scrollTop =0;
-
-
-				}else{
-
-				}
-		});
-
+		console.log("d======" + wenzhang + ",,," + d);
 
 
 		//加载到阅读器
 		// if (d == 0) {
 
-			// api.require('bookReader').setValue({
-			// 	filePath: wenzhang,
-			// 	bg: img,
-			// 	codingType: 'utf8',
-			// 	textStyle: {
-			// 		size: FontSize,
-			// 	},
-			// 	// progress: d
-			// }, function(ret, err) {console.log(JSON.stringify(ret));});
+			api.require('bookReader').setValue({
+				filePath: wenzhang,
+				bg: img,
+				codingType: 'utf8',
+				textStyle: {
+					size: FontSize,
+				},
+				// progress: d
+			}, function(ret, err) {console.log(JSON.stringify(ret));});
 
 
 		// }
@@ -1408,13 +1360,6 @@
 		}, function(ret, err) {});
 
 		document.getElementById("beijing").style.background = img;
-		$(".chaptercontent")[0].style.background = img; //页面背景
-
-
-
-$(".chaptercontent")[0].style.fontSize = FontSize + "px";
-
-
 
 	}
 
@@ -1422,24 +1367,6 @@ $(".chaptercontent")[0].style.fontSize = FontSize + "px";
 
 	function yuedu() //加载阅读器
 	{
-
-
-		api.readFile({
-		    path: wenzhang
-		}, function(ret, err){
-		    if( ret ){
-		      	var ct = ret.data;
-
-						// content = content.replace("\r\n", "\r\n\r\n");
-						var content = ct.replace(/\r\n/g,"<br>");
-
-						$(".chaptercontent").html(content);
-
-		    }else{
-
-		    }
-		});
-
 
 		// bookReader.getProgress({
 		//     filePath: wenzhang
@@ -1452,198 +1379,105 @@ $(".chaptercontent")[0].style.fontSize = FontSize + "px";
 		// });
 
 
-// 		var winHeight = api.winHeight - 60;
-// 		bookReader.open({
-// 			x: 0,
-// 			y: 15,
-// 			w: api.frameWidth,
-// 			h: winHeight,
-// 			codingType: 'utf8',
-// 			textStyle: {
-// 				size: FontSize,
-// 			},
-// 			filePath: wenzhang,
-// 			bg: img
-// 			//  progress:jindu,
-// 		}, function(ret, err) {
-//
-// 			//  jindu=ret.progress;
-//
-// // console.log("jindu=" + jindu);
-//
-// 			if (ret) {
-// 				if (ret.eventType == "click") //点击中间
-// 				{
-// 					api.openFrame({
-// 						name: 'bwin',
-// 						url: 'bwin.html',
-// 						rect: {
-// 							x: 0,
-// 							y: 0,
-// 						},
-// 						vScrollBarEnabled: false,
-// 						pageParam: {
-// 							bookid: bookid
-// 						}
-// 					});
-// 				}
-// 				if (ret.eventType == "page_end") //章节末尾
-// 				{
-//
-// 					xianzhis(0);
-// 					// xianzhi = 0;
-//
-// 					// 获取广告
-// 						// alert(sort + "," + zj)
-// 					if (sort >= (zj - 1)) {
-// 						api.toast({
-// 							msg: '这是最后一页'
-// 						});
-// 						return;
-// 					}
-// 					if (xianzhi == 0) //限制5秒才能翻相爱一张
-// 					{
-// 						xianzhi = 1;
-//
-// 						sort++;
-// 						zhangjie(sort, 0);
-// 					} else {
-// 						api.toast({
-// 							msg: '亲不要那么快哦'
-// 						});
-//
-// 					}
-//
-// 				}
-//
-//
-// 				if (ret.eventType == "page_begin") //返回上一章
-// 				{
-// 					//            jindu=100;
-// 					xianzhis(1);
-// 					// xianzhi = 0;
-//
-//
-// 					//  alert("sort=" + sort)
-// 					if (sort <= 0) {
-// 						api.toast({
-// 							msg: '这是第一页'
-// 						});
-// 						return;
-// 					}
-// 					if (xianzhi == 0) //限制5秒才能翻页
-// 					{
-// 						xianzhi = 1;
-//
-// 						sort--;
-// 						zhangjie(sort, 100);
-// 					} else {
-// 						api.toast({
-// 							msg: '亲不要那么快哦'
-// 						});
-//
-// 					}
-//
-// 				}
-//
-// 			} else {
-//
-// 			}
-// 		});
-	}
-
-
-
-	/**
-	* 上一张
-	*/
-	function frontChapter() {
-		// xianzhis(1);
-		xianzhi = 0;
-
-
-		if (sort <= 0) {
-			api.toast({
-				msg: '这是第一页'
-			});
-			return;
-		}
-		if (xianzhi == 0) //限制5秒才能翻页
-		{
-			xianzhi = 1;
-
-			sort--;
-			zhangjie(sort, 100);
-		} else {
-			api.toast({
-				msg: '亲不要那么快哦'
-			});
-
-		}
-
-	}
-
-	/**
-	* 下一张
-	*/
-	function nextChapter() {
-		// xianzhis(0);
-		xianzhi = 0;
-
-
-		if (sort >= (zj - 1)) {
-			api.toast({
-				msg: '这是最后一页'
-			});
-			return;
-		}
-		if (xianzhi == 0) //限制5秒才能翻相爱一张
-		{
-			xianzhi = 1;
-
-			sort++;
-			zhangjie(sort, 0);
-		} else {
-			api.toast({
-				msg: '亲不要那么快哦'
-			});
-
-		}
-	}
-
-
-	function list() {
-		api.openFrame({
-			name: 'bwin',
-			url: 'bwin.html',
-			rect: {
-				x: 0,
-				y: 0,
+		var winHeight = api.winHeight - 60;
+		bookReader.open({
+			x: 0,
+			y: 15,
+			w: api.frameWidth,
+			h: winHeight,
+			codingType: 'utf8',
+			textStyle: {
+				size: FontSize,
 			},
-			vScrollBarEnabled: false,
-			pageParam: {
-				bookid: bookid
+			filePath: wenzhang,
+			bg: img
+			//  progress:jindu,
+		}, function(ret, err) {
+
+			//  jindu=ret.progress;
+
+// console.log("jindu=" + jindu);
+
+			if (ret) {
+				if (ret.eventType == "click") //点击中间
+				{
+					api.openFrame({
+						name: 'bwin',
+						url: 'bwin.html',
+						rect: {
+							x: 0,
+							y: 0,
+						},
+						vScrollBarEnabled: false,
+						pageParam: {
+							bookid: bookid
+						}
+					});
+				}
+				if (ret.eventType == "page_end") //章节末尾
+				{
+
+					xianzhis(0);
+					// xianzhi = 0;
+
+					// 获取广告
+						// alert(sort + "," + zj)
+					if (sort >= (zj - 1)) {
+						api.toast({
+							msg: '这是最后一页'
+						});
+						return;
+					}
+					if (xianzhi == 0) //限制5秒才能翻相爱一张
+					{
+						xianzhi = 1;
+
+						sort++;
+						zhangjie(sort, 0);
+					} else {
+						api.toast({
+							msg: '亲不要那么快哦'
+						});
+
+					}
+
+				}
+
+
+				if (ret.eventType == "page_begin") //返回上一章
+				{
+					//            jindu=100;
+					xianzhis(1);
+					// xianzhi = 0;
+
+
+					//  alert("sort=" + sort)
+					if (sort <= 0) {
+						api.toast({
+							msg: '这是第一页'
+						});
+						return;
+					}
+					if (xianzhi == 0) //限制5秒才能翻页
+					{
+						xianzhi = 1;
+
+						sort--;
+						zhangjie(sort, 100);
+					} else {
+						api.toast({
+							msg: '亲不要那么快哦'
+						});
+
+					}
+
+				}
+
+			} else {
+
 			}
 		});
 	}
-
-
-	function exit() {
-		api.closeWin();
-	}
-
-
-	var isShowFooter = true;
-
-	function showfooter() {
-		if (!isShowFooter) {
-			$("#footer").show();
-		} else {
-			$("#footer").hide();
-		}
-		isShowFooter = !isShowFooter;
-	}
-
 
 
 	function beijingse(m) {
@@ -1666,7 +1500,7 @@ $(".chaptercontent")[0].style.fontSize = FontSize + "px";
 			isDaojishi = true;
 
 			if (s == 0) {
-				guanggao();
+				// guanggao();
 			}
 
 			daojishi();

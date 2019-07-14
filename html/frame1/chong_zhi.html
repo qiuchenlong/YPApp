@@ -189,7 +189,7 @@
 		$scope.bookList = [];
 
 		function getData() {
-			$api.post("http://129.204.67.131/book/index.php/Home/Ad/czxqs", {
+			$api.post("http://106.52.204.57/book/index.php/Home/Ad/czxqs", {
 				values: {}
 			}, function (ret) {
 				if (ret.code == 200) {
@@ -227,7 +227,7 @@
 			});
 			return;
 		}
-		$api.post("http://129.204.67.131/book/index.php/Home/Ad/addorder", {
+		$api.post("http://106.52.204.57/book/index.php/Home/Ad/addorder", {
 			values: {
 				cid: cid,
 				userid: userid
@@ -236,7 +236,7 @@
 
 			var danhao = ret.result.danhao;
 			var price = ret.result.price;
-			var notifyurl = "http://129.204.67.131/wpay/notify.php";
+			var notifyurl = "http://106.52.204.57/wpay/notify.php";
 			$api.post("http://www.fondfell.com/pays/addo.php", {
 				values: {
 					money: price,
@@ -290,7 +290,7 @@
 			//                    }
 			//                    else
 			//                    {
-			//                    var url="http://129.204.67.131/wpay/";
+			//                    var url="http://106.52.204.57/wpay/";
 			//
 			//
 			//var wx = api.require('wx');
@@ -300,7 +300,7 @@
 			//  title: '点击立即支付',
 			//  description: '你的订单尚未付款',
 			//  thumb: 'http://www.youdingb.com/zihuijia/Uploads/logo.png',
-			//  contentUrl: 'http://129.204.67.131/wpay/index.php?danhao='+danhao+'&price='+price,
+			//  contentUrl: 'http://106.52.204.57/wpay/index.php?danhao='+danhao+'&price='+price,
 			//}, function(ret, err) {
 			//  if (ret.status) {
 			//      alert('分享成功');

@@ -44,6 +44,14 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script src="../script/jquery.js"></script>
 <script type="text/javascript">
+
+
+$("#main").hide();
+$("#yuantu").hide();
+$("#ad").hide();
+
+
+
  var bookid,weburl,path,xiangqing;
 
  	$('#yuantu').click(function()
@@ -80,17 +88,22 @@
 
     $api.post(phpurl+'Home/Ad/bookad?bookid='+bookid,function(ret){
     // alert($api.jsonToStr(ret));
-    if (ret.result.images == undefined) {
-        api.closeFrame({
-           });
-        return;
-    }
-		document.getElementById('ad').src=imageUrl+ret.result.images;
-		weburl=ret.result.weburl;
-		path=ret.result.gotos;
-		xiangqing=ret.result.content;
+      if (ret.result.images == undefined) {
+          api.closeFrame({
+             });
+          return;
+      }
 
-	});
+      $("#main").show();
+      $("#yuantu").show();
+      $("#ad").show();
+
+  		document.getElementById('ad').src=imageUrl+ret.result.images;
+  		weburl=ret.result.weburl;
+  		path=ret.result.gotos;
+  		xiangqing=ret.result.content;
+
+  	});
 
      }
 

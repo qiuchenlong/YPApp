@@ -139,7 +139,8 @@
             {{ dlist.intro }}
         </p>
         <p class="title-List">
-            <a class="u-title1" href="javascript:;" ng-repeat="w in kw track by $index">{{ w }}</a>
+
+            <a class="u-title{{ $index/2 == 0 ? 1 : 2 }}" href="javascript:;" ng-repeat="w in kw track by $index">{{ w }}</a>
             <!-- <a class="u-title2" href="javascript:;">先婚后爱</a>
             <a class="u-title1" href="javascript:;">先婚后爱</a>
             <a class="u-title2" href="javascript:;">先婚后爱</a>
@@ -178,7 +179,7 @@
             <div class="u-comment" ng-repeat="p in plList " id="uid">
                 <p class="comment_user">
                         <span class="iconfont">
-                            <img ng-src="{{ p.uimg }}" alt="" src="" onerror="this.src='../image/my.png';this.onerror=null" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
+                            <img ng-src="{{ imgurl + p.uimg }}" alt="" src="" onerror="this.src='../image/my.png';this.onerror=null" style="width: 0.72rem;height: 0.72rem;border-radius: 50%;">
                         </span>
                     <span class="user_name">{{ p.username }}</span>
                     <span class="u-score">
@@ -518,7 +519,7 @@
                     user_id : userid,
                 },
             }, function(ret) {
-                //                 console.log(JSON.stringify(ret))
+                                // console.log(JSON.stringify(ret))
                 //alert($api.jsonToStr(ret));
                 if (ret.code == 200) {
                     var result = ret.result;
@@ -534,8 +535,23 @@
                         wenben = $scope.dlist.text;
                         //小说标签
                         var kw = $scope.dlist.keywords;
-                        var arr = kw.split(',');
-                        $scope.kw = arr;
+                        if (kw != undefined && kw != "") {
+                          var arr1 = undefined
+                          var arr2 = undefined
+                          var arr3 = undefined
+                          arr1 = kw.split(' ');
+                          arr2 = kw.split(',');
+                          arr3 = kw.split('，');
+                          if (arr1 instanceof Array) {
+                            $scope.kw = arr1;
+                          }
+                          if (arr2 instanceof Array) {
+                            $scope.kw = arr2;
+                          }
+                          if (arr3 instanceof Array) {
+                            $scope.kw = arr3;
+                          }
+                        }
                         // console.log(JSON.stringify(arr));
                         $scope.$apply();
                         $api.removeCls($api.dom('html'), 'htmlWeiLei');
@@ -642,7 +658,7 @@
         };
         //支付
         function zhifu(m, money, danhao) {
-            var pays = new pay(money, danhao, 'http://129.204.67.131/book/', 1);
+            var pays = new pay(money, danhao, 'http://106.52.204.57/book/', 1);
             if (m == 0) {
                 pays.zhifubao(function(win) {
                     if (win) {
@@ -829,7 +845,7 @@
             title       : sharetitle,
             description : sharecontent,
             thumb       :  'widget://image/logo.png',
-            contentUrl  :  "http://129.204.67.131/index.php/Home/Index/dtail.html?userid="+userid+"&id="+bookid,
+            contentUrl  :  "http://106.52.204.57/index.php/Home/Index/dtail.html?userid="+userid+"&id="+bookid,
         }, function(ret, err) {
             if (ret.status) {
                 alert('分享成功');

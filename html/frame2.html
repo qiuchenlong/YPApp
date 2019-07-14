@@ -80,6 +80,12 @@
                     <h2>{{ d.shortname }}</h2>
                 </div>
             </li>
+
+
+            <!-- 占位符，补齐列表 -->
+            <li class="li" ng-if="dataList.length%2 != 0" style="float:left; width:45%">
+            </li>
+
              <!--<li class="li">
                 <div class="left">
                     <img class="img_pst" src="../src/images/i-01.png" alt="">
@@ -175,7 +181,7 @@
         $scope.imageUrl = imageUrl;
         user_head = $api.getStorage('user_head');
         if (user_head != '' && user_head != 'touxiang.png' && user_head) {
-            $('.frame2_my').attr('src', user_head);
+            $('.frame2_my').attr('src', imageUrl + user_head);
         }
         function getData(pd, callback) {
             $api.post(phpurl + 'Home/Book/fenlei?', {
@@ -216,6 +222,7 @@
                     title    : '分类',
                     data     : {
                         sortid : datas,
+                        types  : 1,
                     },
                 },
             });
