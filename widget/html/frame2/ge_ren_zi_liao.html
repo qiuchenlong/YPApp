@@ -303,8 +303,10 @@
 					targetHeight: 800,
 				}, function (ret, err) {
 					headimage = ret.data;
-					headimg.src = headimage;
-					console.log(headimage)
+					if (headimage != "") {
+						headimg.src = headimage;
+						console.log(headimage)
+					}
 				});
 			}
 		});

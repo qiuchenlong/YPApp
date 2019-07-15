@@ -166,5 +166,17 @@
         //	       url: weburl
         //                           });
         //		}
+
+        // initJPush();
+
+        function initJPush() {
+            var ajpush = api.require('ajpush');
+            ajpush.init(function(ret) {
+                if (ret && ret.status){
+                    //success
+                }
+            });
+        }
+
     }
 </script>

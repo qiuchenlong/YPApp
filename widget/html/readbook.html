@@ -907,8 +907,8 @@
 			width: 30px;
 			height: 20px;
 			background-size: 30px 100%;
-			position: absolute;
-			left: 10px;
+			/*position: absolute;*/
+			margin-left: 20px;
 			opacity: 0.6;
 		}
 
@@ -952,14 +952,14 @@
 
 
 		<!-- 电池 -->
-		<div class="battery_bg">
-			<div class="battery_c" style="width: 50%;" id="dianchi"></div>
+		<div class="battery_bg" style="float: left;">
+			<div class="battery_c" id="dianchi"></div>
 		</div>
 
 		<!-- 时间 -->
-		<span id="shijian" style="margin-left: 50px; float: left;"></span>
+		<span id="shijian" style="margin-left: 10px; float: left;"></span>
 		<!-- 章节 -->
-		<span id="zhangjie">1/99章</span>
+		<span id="zhangjie" style="margin-right: 20px; float: right;">1/99章</span>
 
 	</div>
 
@@ -1039,12 +1039,17 @@
 			if (ret && ret.value) {
 				var cid = ret.value.cid;
 				sort = ret.value.sort
-					//					alert(sort);
+										// alert(sort);
 				var zhang = ret.value.z;
 				wenzhangss(cid, 0, zhang);
 				var zhj = sort + 1;
 				document.getElementById('zhang').innerHTML = ret.value.zhang;
 				document.getElementById('zhangjie').innerHTML = zhj + '/' + zj + '章';
+
+
+				$api.post(phpurl + 'Home/book/chapterreads?id=' + bookid + '&userid=' + userid + '&sx=' + sort, function(ret) {
+				});
+
 
 
 			}
@@ -1154,9 +1159,10 @@
 					sort = ret.result.z;
 
 				}
+				zhj = ret.result.z;
 				zj = ret.result.sl;
 				document.getElementById('zhang').innerHTML = ret.result.chaptername;
-				document.getElementById('zhangjie').innerHTML = '1/' + zj + '章';
+				document.getElementById('zhangjie').innerHTML = (parseInt(zhj) + 1) + '/' + zj + '章';
 
 
 				// 章节id、章节内容
@@ -1215,9 +1221,51 @@
 			path: 'fs://' + m + '.txt'
 		}, function(ret, err) {
 			if (ret.exist) { //文件已经存在
-				var fsDir = api.fsDir;
-				wenzhang = fsDir + "/" + m + ".txt";
+
+				// alert(111)
+
+				api.readFile({
+						path: 'fs://' + m + '.txt'
+				}, function(ret, err){
+						if( ret ){
+							var ct = ret.data;
+							// alert(ct);
+							if (ct == "" || ct == "null") {
+								// 写文件
+								api.writeFile({
+								    path: 'fs://' + m + '.txt',
+								    data: z,
+										append: false
+								}, function(ret, err) {
+
+								//     if (ret.status) {
+								//        
+								//     } else {
+								//
+								//     }
+
+								//成功
+								wenzhang = 'fs://' + m + '.txt';
+								xiayizhang(wenzhang, d)
+
+								});
+							} else {
+								//成功
+								wenzhang = 'fs://' + m + '.txt';
+								xiayizhang(wenzhang, d)
+							}
+						}
+					}
+				)
+
+
+				//成功
+				wenzhang = 'fs://' + m + '.txt';
 				xiayizhang(wenzhang, d)
+
+				// var fsDir = api.fsDir;
+				// wenzhang = fsDir + "/" + m + ".txt";
+				// xiayizhang(wenzhang, d)
 
 			} else { //下载文件
 				// var url = 'http://106.52.204.57' + z;

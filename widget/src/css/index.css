@@ -263,7 +263,7 @@ img{ vertical-align: middle; }
 }
 .m-time-travel .bd{ padding: 0; background: #f1f1f1; }
 .m-time-travel .bd > *{ background: #fff; padding: 0 0.3rem; }
-.m-time-travel .u-ul_flex{ margin-top: 0.1rem; padding-top: 0.3rem; }
+.m-time-travel .u-ul_flex{ margin-top: 0.1rem; padding-top: 0.3rem; display: none;}
 .m-time-travel .right .text .u-title1, .m-time-travel .right .text .u-title2{ font-size: 0.16rem; padding: 0 4px; }
 /*小说详情页*/
 .m-dtail_hd{position: relative;overflow: hidden;}

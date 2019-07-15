@@ -39,9 +39,9 @@
         <div class="base"></div>
         <div class="frame2_nav">
             <a class="nav_a nav_thrid nav_sty">女频</a>
-            <a class="nav_a nav_thrid nav_sty">男频</a>
-            <a class="nav_a current nav_thrid nav_sty">出版</a>
-            <a class="nav_a nav_thrid nav_sty">推荐</a>
+            <a class="nav_a current nav_thrid nav_sty">男频</a>
+            <a class="nav_a nav_thrid nav_sty">出版</a>
+            <!-- <a class="nav_a nav_thrid nav_sty">推荐</a> -->
             <a class="nav_a" href="javascript:;" onclick="shudan()">书单</a>
         </div>
     </div>
@@ -71,7 +71,12 @@
                     <h2>{{ d.shortname }}</h2>
                 </div>
             </li>
-            <li class="li" ng-repeat="d in lastList" ng-cloak ng-click="openws(d.sortid)">
+
+            <!-- 占位符，补齐列表 -->
+            <li class="li" ng-if="dataList.length%2 != 0" style="float:left; width:45%">
+            </li>
+
+            <!-- <li class="li" ng-repeat="d in lastList" ng-cloak ng-click="openws(d.sortid)">
                 <div class="left">
                     <img class="img_pst" src="{{ imageUrl + d.imgurl }}" alt="">
                     <img class="img_btm" src="{{ imageUrl + d.imgurl }}" alt="">
@@ -79,14 +84,7 @@
                 <div class="right">
                     <h2>{{ d.shortname }}</h2>
                 </div>
-            </li>
-
-
-            <!-- 占位符，补齐列表 -->
-            <li class="li" ng-if="dataList.length%2 != 0" style="float:left; width:45%">
-            </li>
-
-
+            </li> -->
             <!-- <li class="li">
                 <div class="left">
                     <img class="img_pst" src="../src/images/i-01.png" alt="">
@@ -140,10 +138,10 @@
     }
     function paihang() {
         api.openWin({
-            name      : 'win_cb',
+            name      : 'win_nan',
             url       : 'win_header.html',
             pageParam : {
-                frm_name : 'rank_65150',
+                frm_name : 'rank_bab',
                 frm_url  : 'ranking.html',
                 title    : '排行榜',
             },
@@ -223,13 +221,13 @@
                     title    : '分类',
                     data     : {
                         sortid : datas,
-                        types  : 3,
+                        types  : 2,
                     },
                 },
             });
         };
         EventT.on('apiready', function() {
-            getData(3);
+            getData(2);
         });
     });
     // 金币导航切换

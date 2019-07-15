@@ -71,6 +71,7 @@ align-items: center;
     		margin:0 auto;
     		font-size:12px;
     		line-height:35px;
+				padding: 0 20px;
     	}
 /*    	.forget_psd{
     		color:#2674cc;
@@ -121,7 +122,7 @@ align-items: center;
 	</div>
 	<div class="forget">
 		<span class="forget_psd" onclick="openR()" >忘记密码？</span>
-		<a href="javascript:;" style="text-decoration: underline;color:#484848;float:right;" onclick="go_login()">已有账号，点击登录</a>
+		<a href="javascript:;" style="text-decoration: underline;color:#484848;float:right; margin-right:40px;" onclick="go_login()">已有账号，点击登录</a>
 	</div>
 	<div class="btn">
 		<button class="register_btn">
@@ -160,7 +161,7 @@ align-items: center;
             url  : 'reset_win.html',
         });
     }
-    
+
 	function openlogin(){
 		api.openWin({
 	        name: 'login_win',
@@ -181,9 +182,9 @@ align-items: center;
 
 
 		$('#get_code').click(function(){
-		
+
 		     $("#get_code").css("background","#cccccc");
-             
+
 			var phones = $('#phone').val()
 
 			if (!checkMobile(phones)) {
@@ -192,7 +193,7 @@ align-items: center;
 				});
 				return false;
 			}
-           
+
 
 			if (!CAPTCHA_click) {
 				return false;
@@ -233,7 +234,7 @@ align-items: center;
                  {
                  $api.toast('账号不能为空');return;
                  }
-                 
+
 			$api.post(phpurl+'Home/User/register',{
 					values:{
 						phone:$('#phone').val(),
@@ -247,14 +248,14 @@ align-items: center;
                    api.toast({
 							msg: ret.msg
 						});
-						
+
                         setTimeout(function(){
                         	api.closeWin({
                             });
                         },800)
-	                    
+
 					 }else{
-					 
+
 					 api.toast({
 							msg: ret.msg
 						});
@@ -263,17 +264,17 @@ align-items: center;
 					 }
 				})
 				}
-				
+
 				else
 				{
-				
+
 				api.toast({
 							msg: '验证码不正确'
 						});
-						
+
 				}
 
-			
+
 		})
 
 
@@ -306,7 +307,7 @@ align-items: center;
 			return true;
 		}
 	}
-	
+
 	function zhuceXieyi(){
 		api.openWin({
 	        name: 'xieyi_win',

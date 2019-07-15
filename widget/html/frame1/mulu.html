@@ -95,7 +95,7 @@
                     page : page,
                 },
             }, function(ret) {
-                //		alert($api.jsonToStr(ret));
+                		// alert($api.jsonToStr(ret));
                 var result = ret.result;
                 if (ret.code == 200) {
                     if (page == 0) {
@@ -114,7 +114,8 @@
         $scope.bookdetail = function(dates) {
             var cid = dates.chapterid;
             var paixu = dates.paixu;
-            $api.send('xuanze_zhangjie', {cid : cid, sort : paixu, z : dates.texts, zhang : dates.chaptername});
+            console.log(JSON.stringify(dates));
+            $api.send('xuanze_zhangjie', {cid : cid, sort : paixu, z : dates.attachment, zhang : dates.chaptername});
             api.closeWin({});
         };
         EventT.on('apiready', function() {

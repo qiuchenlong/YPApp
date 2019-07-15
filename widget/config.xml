@@ -23,14 +23,14 @@
     <param name="urlscheme" value="AliPay + A6903071794713"/>
   </feature>
   <feature name="wx">
-    <param name="urlScheme" value="wx60554342f1f9647e"/>
-    <param name="apiKey" value="wx60554342f1f9647e"/>
-    <param name="apiSecret" value="f62ae6edd221b17cce813d8a06983ee7"/>
+    <param name="urlScheme" value="wx5aa686959aa89f63"/>
+    <param name="apiKey" value="wx5aa686959aa89f63"/>
+    <param name="apiSecret" value="9741b443af365d5fec679f08b21441e9"/>
   </feature>
   <feature name="weiXin">
-    <param name="urlScheme" value="wx60554342f1f9647e"/>
-    <param name="apiKey" value="wx60554342f1f9647e"/>
-    <param name="apiSecret" value="f62ae6edd221b17cce813d8a06983ee7"/>
+    <param name="urlScheme" value="wx5aa686959aa89f63"/>
+    <param name="apiKey" value="wx5aa686959aa89f63"/>
+    <param name="apiSecret" value="9741b443af365d5fec679f08b21441e9"/>
   </feature>
   <feature name="smsVerify">
     <param name="android_app_key" value="1336b3755db49"/>
@@ -43,7 +43,9 @@
   <feature name="imageFilter"/>
   <feature name="fs"/>
   <feature name="ajpush">
-    <param name="app_key" value="6d98f9ee8b62db0ca01efeca"/>
-    <param name="channel" value="672ae23a8768323dc3dce840"/>
+    <param name="app_key" value="6604e334608ced70e6da08d8"/>
+    <!-- 6d98f9ee8b62db0ca01efeca -->
+    <param name="channel" value="6ec51a2e688f9e136a69ffd4"/>
+    <!-- 672ae23a8768323dc3dce840 -->
   </feature>
 </widget>

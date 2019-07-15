@@ -20,10 +20,10 @@
 </head>
 <body ng-controller="DataController">
 <header class="detail_header">
-    <i class="iconfont iconfont icon-xiangshangbiaoshi-copy" style="font-size: 0.32rem;width: 1.32rem;" onclick="fanhui()"></i>
+    <i class="iconfont iconfont icon-xiangshangbiaoshi-copy"  onclick="fanhui()"></i>
     <h1 class="h1" style="    display: none;">书籍详情</h1>
-    <div class="right" style="    display: flex;align-items: center; width: 1.32rem;">
-        <i class="iconfont icon-fenxiang js-share" style="    font-size: 0.32rem;margin-left: 2em;"></i>
+    <div class="right" >
+        <i class="iconfont icon-fenxiang js-share" ></i>
         <!-- <i class="iconfont icon-more-copy" style="font-size: 0.5rem;margin-left: 1em;" onclick="alert('敬请期待')"></i> -->
     </div>
 </header>
@@ -850,7 +850,8 @@
             if (ret.status) {
                 alert('分享成功');
             } else {
-                alert(err.code);
+                // err.code
+                alert("您未安装微信");
             }
         });
 

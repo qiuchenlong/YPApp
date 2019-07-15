@@ -65,21 +65,27 @@ var  userid;
  var shareurl;;
       var sharecontent="海量小说免费看，惊喜不断，持续更新";
       var sharetitle="一品阅读";
-      
+
     apiready = function () {
          userid = $api.getStorage('user_id');
          shareurl="http://106.52.204.57?userid="+userid;
                    $api.post(phpurl + 'Home/Ad/xitong', {//获取分享配置
-      
+
             }, function(ret) {
-            
-                       shareurl=ret.result[0].address+"?userid="+userid;
-                       sharecontent=ret.result[0].content;
-                       sharetitle=ret.result[0].title;
+              console.log(JSON.stringify(ret));
+
+                if (ret.result.length == 0) {
+                  api.toast({msg: '数据加载失败，请重试'});
+                  return;
+                }
+
+                shareurl=ret.result[0].address+"?userid="+userid;
+                sharecontent=ret.result[0].content;
+                sharetitle=ret.result[0].title;
             });
-            
-            
-       
+
+
+
 
     }
 
@@ -101,9 +107,9 @@ var  userid;
 
           function fenxiang(m)
           {
-          
 
-            
+
+
               if(m==1)
               {
               var path="session";
